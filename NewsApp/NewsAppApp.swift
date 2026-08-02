@@ -10,7 +10,11 @@ import SwiftUI
 @main
 struct NewsAppApp: App {
     @StateObject  private var loginViewModel = LoginViewModel()
-    let persistence = PersistenceController.shared
+    init() {
+           if ProcessInfo.processInfo.arguments.contains("UI-TESTING-RESET-LOGIN") {
+               UserDefaultsManager.shared.clearUserData()
+           }
+       }
     var body: some Scene {
         WindowGroup {
             AppRouter()

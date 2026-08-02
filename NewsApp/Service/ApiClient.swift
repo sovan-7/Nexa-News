@@ -1,6 +1,10 @@
 import Foundation
 
-class APIClient {
+
+protocol ApiClientProtocol {
+    func request<T: Decodable>(urlString: String) async throws -> T
+}
+class APIClient :ApiClientProtocol{
     
     static let shared = APIClient()
     

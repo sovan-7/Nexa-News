@@ -1,12 +1,12 @@
 import CoreData
-
 struct PersistenceController {
     static let shared = PersistenceController()
-
     let container: NSPersistentContainer
-
-    init() {
-        container = NSPersistentContainer(name: "NewsApp") // must match your .xcdatamodeld filename
+    init(inMemory: Bool = false) {
+        container = NSPersistentContainer(name: "NewsApp")
+        if inMemory {
+            container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+        }
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Core Data failed to load: \(error)")
@@ -14,7 +14,6 @@ struct PersistenceController {
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
-
     var context: NSManagedObjectContext {
         container.viewContext
     }

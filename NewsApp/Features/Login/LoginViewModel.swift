@@ -1,23 +1,27 @@
 import Foundation
 import Combine
+
 @MainActor
 class LoginViewModel: ObservableObject {
     
     @Published var currentUser: User?
-    
+    private let userDefaultsManager: UserDefaultsManaging
+    init( userDefaultsManager: UserDefaultsManaging? = nil) {
+        self.userDefaultsManager =  userDefaultsManager ?? UserDefaultsManager.shared
+    }
     func login(user: User) {
         currentUser = user
-        UserDefaultsManager.shared.setIsLoggedIn(true)
+        userDefaultsManager.setIsLoggedIn(true)
         if let name = currentUser?.name {
-            UserDefaultsManager.shared.setUserName(name)
+            userDefaultsManager.setUserName(name)
         }
         if let email = currentUser?.email {
-            UserDefaultsManager.shared.setUserEmail(email)
+            userDefaultsManager.setUserEmail(email)
         }
     }
     
     func logout() {
         currentUser = nil
-        UserDefaultsManager.shared.clearUserData()
+        userDefaultsManager.clearUserData()
     }
 }

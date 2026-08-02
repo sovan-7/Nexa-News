@@ -45,7 +45,7 @@ struct LoginView: View {
                                         .tint(themeManager.colors.primary)
                                         .keyboardType(.emailAddress)
                                         .textInputAutocapitalization(.never)
-                                        .autocorrectionDisabled(true).textContentType(.init(rawValue: ""))
+                                        .autocorrectionDisabled(true).textContentType(.init(rawValue: "")).accessibilityIdentifier("emailField")
                                 }
                             }
                             if !loginFormError.emailErrorMsg.isEmpty {
@@ -85,7 +85,8 @@ struct LoginView: View {
                                         .font(.system(size: 15))
                                         .foregroundColor(themeManager.colors.textSecondary)
                                 }
-                            }
+                            }.accessibilityIdentifier("rememberMeToggle")
+
                             Spacer()
                             Button(action: {}) {
                                 Text("Forgot?")
@@ -108,7 +109,7 @@ struct LoginView: View {
                                 .background(themeManager.colors.primary)
                                 .cornerRadius(12)
                         }
-                        .padding(.top, 4)
+                        .padding(.top, 4).accessibilityIdentifier("signInButton")
 
                         dividerRow.padding(.top, 4)
 
@@ -195,9 +196,9 @@ struct LoginView: View {
                 Image(systemName: "lock").font(.system(size: 16)).foregroundColor(themeManager.colors.textMuted).frame(width: 18)
                 Group {
                     if isPasswordVisible {
-                        TextField("Enter your password", text: $password)
+                        TextField("Enter your password", text: $password).accessibilityIdentifier("passwordField")
                     } else {
-                        SecureField("Enter your password", text: $password)
+                        SecureField("Enter your password", text: $password).accessibilityIdentifier("passwordField")
                     }
                 }
                 .font(.system(size: 15))
@@ -205,7 +206,8 @@ struct LoginView: View {
                 Button(action: { isPasswordVisible.toggle() }) {
                     Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
                         .font(.system(size: 16))
-                        .foregroundColor(themeManager.colors.textMuted)
+                        .foregroundColor(themeManager.colors.textMuted).accessibilityIdentifier("eye")
+
                 }
             }
             .padding(.horizontal, 12)
@@ -234,5 +236,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView().environmentObject(LoginViewModel())
+        .environmentObject(ThemeManager())
 }

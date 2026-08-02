@@ -3,18 +3,14 @@ import Combine
 import CoreData
 
 class BookmarkManager: ObservableObject {
-    static let shared = BookmarkManager()
+    static let shared = BookmarkManager(context: PersistenceController.shared.container.viewContext)
 
     @Published var bookmarkedArticles: [Article] = []
 
-    // ✅ Correctly typed as NSManagedObjectContext
     private var context: NSManagedObjectContext
 
-    init() {
-        // ✅ Create the NSPersistentContainer first
-        context = PersistenceController.shared.container.viewContext
-
-       
+    init(context:NSManagedObjectContext) {
+        self.context = context
         load()
     }
 

@@ -1,4 +1,4 @@
-Nexa News (NewsApp)
+Nexa News (News App)
 
 <img width="1200" height="320" alt="banner" src="https://github.com/user-attachments/assets/29054532-4830-4606-9aec-e8f6bacee8d1" />
 

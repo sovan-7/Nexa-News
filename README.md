@@ -5,7 +5,7 @@ Nexa News (News App)
 
 An iOS news reader built with SwiftUI. It shows headlines, sorted by category, and lets you bookmark articles to read later.
 
-Features
+Features\n
 Login screen that checks the email and password fields
 Category tabs: Sports, Politics, Business, Health and Science
 Article details screen and a swipeable Trending feed

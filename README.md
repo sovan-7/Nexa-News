@@ -5,14 +5,24 @@ Nexa News (News App)
 
 An iOS news reader built with SwiftUI. It shows headlines, sorted by category, and lets you bookmark articles to read later.
 
-Features\n
-Login screen that checks the email and password fields
-Category tabs: Sports, Politics, Business, Health and Science
-Article details screen and a swipeable Trending feed
-Bookmarks saved with Core Data
-Light and dark themes
-Profile screen with legal pages, sharing and logout
-Tech stack
+## ✨ Features
+
+- 🔐 **Login**: checks the email and password fields and keeps you signed in
+- 🗂️ **Categories**: Sports, Politics, Business, Health and Science
+- 📰 **Details**: large header image, author, source and date
+- 🔥 **Trending**: full-screen feed you swipe through vertically
+- 🔖 **Bookmarks**: saved with Core Data, so they're kept after you close the app
+- 🌗 **Themes**: light, dark or follow the system setting
+- 👤 **Profile**: legal pages, share sheet, logout
+
+## 🛠️ Tech stack
+
+- SwiftUI
+- MVVM
+- async/await
+- Core Data
+- UserDefaults
+- Swift Testing and XCTest
 
 SwiftUI · MVVM · async/await · Core Data · UserDefaults · Swift Testing and XCTest. It uses no third-party libraries.
 

@@ -1,5 +1,8 @@
 Nexa News (NewsApp)
 
+<img width="1200" height="320" alt="banner" src="https://github.com/user-attachments/assets/29054532-4830-4606-9aec-e8f6bacee8d1" />
+
+
 An iOS news reader built with SwiftUI. It shows headlines, sorted by category, and lets you bookmark articles to read later.
 
 Features
